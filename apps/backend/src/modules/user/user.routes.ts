@@ -5,7 +5,7 @@ import { loginController } from "./controllers/login.controller";
 import { refreshController } from "./controllers/refresh.controller";
 import { logoutController } from "./controllers/logout.controller";
 import { googleCallbackController } from "./controllers/google.controller";
-import { getMeController } from "./controllers/me.controller";
+import { getMeController, updateMeController } from "./controllers/me.controller";
 import { authMiddleware } from "../../middlewares/auth.middleware";
 
 const router = express.Router();
@@ -32,6 +32,10 @@ router.get(
 // protected routes
 // Returns current user profile
 router.get("/me", authMiddleware, getMeController);
+
+// Updates current user profile (minimal auth properties)
+router.put("/me", authMiddleware, updateMeController);
+
 
 // Handles user logout
 router.post("/logout", authMiddleware, logoutController);
