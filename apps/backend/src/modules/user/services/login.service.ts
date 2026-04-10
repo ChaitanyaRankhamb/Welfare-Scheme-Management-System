@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs";
-import { userRepository } from "../../../database/mongo/repositories/userModelRepo";
+import { userRepository } from "../../../database/repositories/userModelRepo";
 import { AppError } from "../../../Error/appError";
 import {
   generateAccessToken,

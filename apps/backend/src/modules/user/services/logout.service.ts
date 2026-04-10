@@ -1,4 +1,4 @@
-import { userRepository } from "../../../database/mongo/repositories/userModelRepo";
+import { userRepository } from "../../../database/repositories/userModelRepo";
 import redisClient from "../../../config/redis.connection";
 
 /**

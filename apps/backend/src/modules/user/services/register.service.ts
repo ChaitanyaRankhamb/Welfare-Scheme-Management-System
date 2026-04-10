@@ -1,5 +1,5 @@
 import { Resend } from "resend";
-import { userRepository } from "../../../database/mongo/repositories/userModelRepo";
+import { userRepository } from "../../../database/repositories/userModelRepo";
 import { AppError } from "../../../Error/appError";
 import { AuthProvider, ProviderType } from "../../../entity/user/AuthProvider";
 import { verificationEmailTemplate } from "../../../utils/verificationCode.structure";
