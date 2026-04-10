@@ -10,13 +10,7 @@ export const UserValidationSchema = z.object({
   isActive: z.boolean().default(true),
   passwordHash: z.string().optional(),
   role: z.enum(['citizen', 'admin']).default('citizen'),
-  profile: z.object({
-    caste: z.string().optional(),
-    religion: z.string().optional(),
-    income: z.number().nonnegative().optional(),
-    profession: z.string().optional(),
-    state: z.string().optional()
-  }).optional(),
+
   providers: z.array(z.object({
     type: z.nativeEnum(ProviderType),
     providerId: z.string()
@@ -36,13 +30,7 @@ const userSchema = new Schema<UserDocument>({
   isActive: { type: Boolean, default: true },
   passwordHash: { type: String },
   role: { type: String, enum: ['citizen', 'admin'], default: 'citizen' },
-  profile: {
-    caste: { type: String },
-    religion: { type: String },
-    income: { type: Number },
-    profession: { type: String },
-    state: { type: String }
-  },
+
   providers: [{
     type: { type: String, enum: Object.values(ProviderType) },
     providerId: { type: String }
