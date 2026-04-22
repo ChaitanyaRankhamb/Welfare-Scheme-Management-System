@@ -1,7 +1,7 @@
-import { IUserRepository, CreateUserData } from '../../../repository/user.repository';
-import { UserId } from '../../../entity/user/userId';
-import { UserModel } from '../models/user.model';
-import { User } from '../../../entity/user/user.entity';
+import { IUserRepository, CreateUserData } from '../../repository/user.repository';
+import { UserId } from '../../entity/user/userId';
+import { UserModel } from '../mongo/models/user.model';
+import { User } from '../../entity/user/user.entity';
 
 export class UserModelRepo implements IUserRepository {
 
@@ -41,6 +41,25 @@ export class UserModelRepo implements IUserRepository {
 
     const savedUser = await newUser.save();
     return this.mapToDomain(savedUser);
+  }
+
+  async findAllUsers(skip = 0, limit = 20, status?: 'active' | 'inactive'): Promise<{ users: User[]; total: number }> {
+    const filters: any = { role: 'citizen' };
+    
+    if (status === 'active') {
+      filters.isActive = true;
+    } else if (status === 'inactive') {
+      filters.isActive = false;
+    }
+
+    const [docs, total] = await Promise.all([
+      UserModel.find(filters).skip(skip).limit(limit).sort({ createdAt: -1 }),
+      UserModel.countDocuments(filters)
+    ]);
+    return {
+      users: docs.map(doc => this.mapToDomain(doc)),
+      total
+    };
   }
 
   async findUserById(id: string): Promise<User | null> {
