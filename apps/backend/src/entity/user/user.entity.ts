@@ -131,6 +131,11 @@ export class User {
     this.touch();
   }
 
+  setActiveStatus(status: boolean): void {
+    this.isActive = status;
+    this.touch();
+  }
+
   private touch() {
     this.updatedAt = new Date();
   }
