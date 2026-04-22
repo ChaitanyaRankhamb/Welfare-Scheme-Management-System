@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { verifyAccessToken } from "../utils/jwt.utils";
 import redisClient from "../config/redis.connection";
-import { userRepository } from "../database/mongo/repositories/userModelRepo";
+import { userRepository } from "../database/repository/user.repository";
 
 export interface AuthRequest extends Request {
   userId?: string;
@@ -11,7 +11,7 @@ export interface AuthRequest extends Request {
 export const authMiddleware = async (
   req: AuthRequest,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) => {
   // take token from cookies
   const token = req.cookies?.accessToken;

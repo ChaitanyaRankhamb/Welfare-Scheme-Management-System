@@ -1,6 +1,6 @@
 import { Response, NextFunction } from 'express';
 import { AppError } from '../Error/appError';
-import { Role } from '../modules/rbac/roles.enum';
+import { Role } from '../types/roles.enum';
 import { AuthRequest } from './auth.middleware';
 
 /**
