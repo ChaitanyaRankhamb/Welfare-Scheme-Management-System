@@ -16,7 +16,7 @@ function Calendar({
   className,
   classNames,
   showOutsideDays = true,
-  captionLayout = "label",
+  captionLayout = "dropdown",
   buttonVariant = "ghost",
   locale,
   formatters,
@@ -37,6 +37,10 @@ function Calendar({
         className
       )}
       captionLayout={captionLayout}
+      fromYear={1950}
+      toYear={new Date().getFullYear()}
+      reverseMonths={false}
+      reverseYears={true}
       locale={locale}
       formatters={{
         formatMonthDropdown: (date) =>
@@ -82,7 +86,7 @@ function Calendar({
         ),
         caption_label: cn(
           "font-medium select-none",
-          captionLayout === "label"
+          captionLayout === "dropdown"
             ? "text-sm"
             : "flex items-center gap-1 rounded-(--cell-radius) text-sm [&>svg]:size-3.5 [&>svg]:text-muted-foreground",
           defaultClassNames.caption_label

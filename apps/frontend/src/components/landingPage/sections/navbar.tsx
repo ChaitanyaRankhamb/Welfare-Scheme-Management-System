@@ -18,6 +18,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 import { useUser } from "@/context/UserContext";
 import { getAvatarColor } from "@/getAvatarColor";
 import styles from "../styles/navbar.module.css";
+import Image from "next/image";
 
 export default function Navbar() {
   const { user, isLogged, logout } = useUser();
@@ -32,6 +33,7 @@ export default function Navbar() {
     >
       {/* Logo */}
       <Link href="/" className="flex items-center gap-2 shrink-0">
+        <Image src="/logo.png" alt="Logo" width={32} height={32} />
         <span className={styles.logo}>YojanaConnect</span>
       </Link>
 

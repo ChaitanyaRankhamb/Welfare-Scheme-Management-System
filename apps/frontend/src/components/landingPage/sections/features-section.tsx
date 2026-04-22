@@ -63,7 +63,7 @@ export default function FeaturesSection() {
   return (
     <section id="features" className={`py-28 px-6 ${styles.section}`}>
       <div className="max-w-6xl mx-auto relative z-10">
-        
+
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -96,7 +96,8 @@ export default function FeaturesSection() {
             <motion.div
               key={title}
               variants={itemVariants}
-              className={`${styles.card} bg-gradient-to-br ${bgTheme} rounded-2xl p-7 flex flex-col`}
+              whileHover={{ borderColor: iconColor, transition: { duration: 0.3 } }}
+              className={`${styles.card} bg-gradient-to-br ${bgTheme} rounded-2xl p-7 flex flex-col border border-transparent`}
             >
               {/* Feature Icon Wrapper */}
               <div
@@ -115,7 +116,7 @@ export default function FeaturesSection() {
             </motion.div>
           ))}
         </motion.div>
-        
+
       </div>
     </section>
   );
