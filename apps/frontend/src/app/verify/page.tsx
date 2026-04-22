@@ -174,7 +174,7 @@ function VerifyFormContent() {
         title="Email Verified Valid!"
         description="Your email has been verified successfully. You can now access your dashboard."
         buttonLabel="Go to Dashboard"
-        redirectPath="/"
+        redirectPath="/citizenDashboard"
         onClose={() => setShowSuccess(false)}
       />
     </div>

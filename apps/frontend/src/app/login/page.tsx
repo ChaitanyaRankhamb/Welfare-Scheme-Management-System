@@ -169,7 +169,7 @@ export default function LoginForm() {
         title="Login Successful"
         description="You have been logged in successfully. Redirecting to dashboard…"
         buttonLabel="OK"
-        redirectPath="/"
+        redirectPath="/citizenDashboard"
         onClose={() => setShowSuccess(false)}
       />
     </div>

@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { UserProvider } from "@/context/UserContext";
 import { ThemeProvider } from "@/components/theme-provider";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -27,7 +28,9 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <ThemeProvider>
           <UserProvider>
-            {children}
+            <TooltipProvider>
+              {children}
+            </TooltipProvider>
           </UserProvider>
         </ThemeProvider>
       </body>
